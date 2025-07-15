@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHubプランと主要機能のまとめ</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            color: #24292e;
+        }
+        h1 {
+            font-size: 2.5em;
+            text-align: center;
+            border-bottom: 3px solid #24292e;
+        }
+        h2 {
+            font-size: 2em;
+        }
+        h3 {
+            font-size: 1.5em;
+            border-bottom-style: dotted;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+        pre {
+            background-color: #f6f8fa;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GitHubプランと主要機能のまとめ</h1>
+
+        <section id="plan-comparison">
+            <h2>1. GitHubプランの比較 (Free, Team, Enterprise)</h2>
+            <p>GitHubの各プランは、対象となる組織の規模や必要なセキュリティレベルに応じて機能が異なります。</p>
+            <table>
+                <tr>
+                    <th>機能/項目</th>
+                    <th>Free</th>
+                    <th>Team</th>
+                    <th>Enterprise</th>
+                </tr>
+                <tr>
+                    <td><strong>料金 (ユーザー/月)</strong></td>
+                    <td>無料</td>
+                    <td>$4～</td>
+                    <td>$21～</td>
+                </tr>
+                <tr>
+                    <td><strong>対象</strong></td>
+                    <td>個人、小規模プロジェクト</td>
+                    <td>中小規模のチーム、企業</td>
+                    <td>大規模、または高度なセキュリティ要件を持つ企業</td>
+                </tr>
+                <tr>
+                    <td><strong>コードオーナー & 必須レビュー</strong></td>
+                    <td>❌</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                 <tr>
+                    <td><strong>保護されたブランチ</strong></td>
+                    <td>基本的な機能</td>
+                    <td>高度な設定</td>
+                    <td>より高度な設定</td>
+                </tr>
+                <tr>
+                    <td><strong>SAML SSO</strong></td>
+                    <td>❌</td>
+                    <td>❌</td>
+                    <td>✅</td>
+                </tr>
+                 <tr>
+                    <td><strong>高度な監査ログ</strong></td>
+                    <td>❌</td>
+                    <td>❌</td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td><strong>GitHub Advanced Security</strong></td>
+                    <td>パブリックリポジトリのみ</td>
+                    <td>アドオンとして購入可能</td>
+                    <td>✅</td>
+                </tr>
+                 <tr>
+                    <td><strong>サポート</strong></td>
+                    <td>コミュニティサポート</td>
+                    <td>Webサポート</td>
+                    <td>プレミアムサポート</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="collaborators">
+            <h2>2. 外部コラボレーターの扱い</h2>
+            <ul>
+                <li><strong>Freeプラン:</strong> プライベートリポジトリに<strong>無制限</strong>に外部コラボレーターを招待でき、料金はかかりません。</li>
+                <li><strong>Teamプラン:</strong> 外部コラボレーターを<strong>プライベート</strong>リポジトリに招待する場合、そのユーザー分のライセンス料金が<strong>かかります</strong>。パブリックリポジトリへの招待は無料です。</li>
+            </ul>
+        </section>
+        
+        <section id="codeowners-reviews">
+            <h2>3. コードオーナー & 必須レビュー</h2>
+            <p>レビュープロセスを自動化し、コードの品質を担保する機能です。主にTeamプラン以上で利用できます。</p>
+            <h3>コードオーナー (Code Owners)</h3>
+            <p>リポジトリ内のコードの特定部分に対して、責任を持つ担当者を定義する機能。<code>.github/CODEOWNERS</code>ファイルで設定します。</p>
+            <pre><code># docsディレクトリ以下のファイルは @docs-team が担当
+/docs/    @docs-team
+
+# .jsで終わるファイルは @javascript-devs が担当
+*.js      @javascript-devs</code></pre>
+            
+            <h3>必須レビュー (Required Reviews)</h3>
+            <p>プルリクエストがブランチにマージされる前に、指定した条件のレビューが完了していることを強制する「ブランチ保護ルール」の一種です。「コードオーナーからのレビュー」を必須にすることで、より強力なレビュー体制を築けます。</p>
+        </section>
+
+        <section id="protected-branches">
+            <h2>4. 保護されたブランチ</h2>
+            <p>重要なブランチを意図しない変更から守る仕組みです。プランが上位になるほど、より厳格なルールを設定できます。</p>
+            <table>
+                <tr>
+                    <th>保護ルール</th>
+                    <th>Freeプラン</th>
+                    <th>Teamプラン</th>
+                    <th>Enterpriseプラン</th>
+                </tr>
+                <tr>
+                    <td>マージ前にプルリクエストを必須にする</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td>承認レビューを必須にする</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td>ステータスチェックをパスすることを必須にする</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td><strong>コードオーナーからのレビューを必須にする</strong></td>
+                    <td>❌</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td><strong>管理者にもルールを適用する</strong></td>
+                    <td>❌</td>
+                    <td>❌</td>
+                    <td>✅</td>
+                </tr>
+            </table>
+        </section>
+        
+        <section id="security-features">
+            <h2>5. セキュリティと認証機能</h2>
+            <h3>SAML SSO (シングルサインオン)</h3>
+            <p>一度のログインで、複数の異なるサービスを利用できるようにする仕組み。主にEnterpriseプランで提供され、組織のID管理システム（IdP）と連携します。Google Workspace (旧 G Suite) をIdPとして利用することも可能です。</p>
+            
+            <h3>高度な監査ログ</h3>
+            <p>「いつ、誰が、何をしたか」をより詳細に記録・追跡する機能。ログの長期保持や、外部監視システムへのリアルタイム転送（ストリーミング）が可能です。</p>
+            
+            <h3>GitHub Advanced Security (GHAS)</h3>
+            <p>開発の早期段階で脆弱性を発見・修正するための統合セキュリティツール群です。Teamプランではアドオンとして購入可能（2025年4月より製品分割）。</p>
+            <ul>
+                <li><strong>コードスキャン (Code scanning):</strong> CodeQLによるコード内の脆弱性スキャン。</li>
+                <li><strong>シークレットスキャン (Secret scanning):</strong> APIキーなどの機密情報を検出し、プッシュをブロック。</li>
+                <li><strong>依存関係レビュー (Dependency review):</strong> オープンソースライブラリの脆弱性をチェック。</li>
+            </ul>
+        </section>
+
+        <section id="support">
+            <h2>6. サポートの違い</h2>
+            <p>プランが上位になるほど、迅速で手厚いサポートが受けられます。</p>
+            <table>
+                <tr>
+                    <th>特徴</th>
+                    <th>Freeプラン</th>
+                    <th>Teamプラン</th>
+                    <th>Enterpriseプラン</th>
+                </tr>
+                <tr>
+                    <td><strong>サポート名</strong></td>
+                    <td>Community サポート</td>
+                    <td>Standard サポート</td>
+                    <td>Premium サポート</td>
+                </tr>
+                <tr>
+                    <td><strong>問い合わせ手段</strong></td>
+                    <td>コミュニティフォーラム</td>
+                    <td>Webフォーム (メール)</td>
+                    <td>Webフォーム, 電話 (英語)</td>
+                </tr>
+                 <tr>
+                    <td><strong>対応時間</strong></td>
+                    <td>保証なし</td>
+                    <td>日本語: 平日<br>英語: 24時間/週5日</td>
+                    <td>英語: 24時間/365日<br>日本語: 平日</td>
+                </tr>
+                <tr>
+                    <td><strong>初回応答時間の目標</strong></td>
+                    <td>保証なし</td>
+                    <td>保証なし</td>
+                    <td>✅ あり (最短30分)</td>
+                </tr>
+            </table>
+        </section>
+    </div>
+</body>
+</html>
